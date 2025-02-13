@@ -8,18 +8,22 @@ namespace QuanLySieuThi
 {
     internal class NhanVien
     {
-        public string MaNhanVien;
         public string HoTen;
+        public string NgaySinh;
         public string DiaChi;
-        public string SoDienThoai;
+        public long SoDienThoai;
+        public string NgayVaoLamViec;
+        public long CMND;
         public KhuVuc KhuVucLamViec; // Mối quan hệ 1-1 với KhuVuc
 
-        public NhanVien(string maNhanVien, string hoTen, string diaChi, string soDienThoai, KhuVuc khuVuc)
+        public NhanVien(string hoTen, string ngaySinh, string diaChi, long soDienThoai, string ngayVaoLamViec, long cmnd, KhuVuc khuVuc)
         {
-            MaNhanVien = maNhanVien;
             HoTen = hoTen;
+            NgaySinh = ngaySinh;
             DiaChi = diaChi;
             SoDienThoai = soDienThoai;
+            NgayVaoLamViec = ngayVaoLamViec;
+            CMND = cmnd;
             KhuVucLamViec = khuVuc;
             khuVuc.ThemNhanVien(this); // this ở đây là NhanVien khi ta khơir tạo 
         }

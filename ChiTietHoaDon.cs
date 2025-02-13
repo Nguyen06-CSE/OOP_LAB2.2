@@ -17,5 +17,10 @@ namespace QuanLySieuThi
             MatHang = matHang;
             SoLuong = soLuong;
         }
+
+        public void XuatChiTietHoaDon()
+        {
+            Console.WriteLine($"{MatHang.TenMatHang}\tco gia\t{MatHang.DonGiaBan}\tvoi so luong {SoLuong}\tthanh tien\t{ThanhTien}");
+        }
     }
 }

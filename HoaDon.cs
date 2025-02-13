@@ -36,5 +36,11 @@ namespace QuanLySieuThi
                 tong += ct.ThanhTien;
             return tong;
         }
+
+
+        public void XuatHoaDon()
+        {
+            Console.WriteLine($"Tong Hoa Don {TinhTongTien()} VND\n{SoHoaDon} {NgayLap} Nhan Vien: {NhanVienBanHang.HoTen} Khach Hang {KhachHangMua.HoTen}");
+        }
     }
 }
