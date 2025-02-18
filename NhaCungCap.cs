@@ -16,39 +16,66 @@ namespace QuanLySieuThi
         public string Mail;
         public List<MatHang> DanhSachMatHang;
 
-        public NhaCungCap(string maNCC, string tenCongTy, string mst, string diaChi, long sdt, string mail)
-        {
-            MaNCC = maNCC;
-            TenCongTy = tenCongTy;
-            MST = mst;
-            DiaChi = diaChi;
-            List<long> SDT = new List<long>();
-            SDT.Add(sdt);
-            Mail = mail;
-            DanhSachMatHang = new List<MatHang>();
-        }
-
         public NhaCungCap(string maNCC, string tenCongTy, string mst, string diaChi, List<long> sdt, string mail)
         {
             MaNCC = maNCC;
             TenCongTy = tenCongTy;
             MST = mst;
-            SDT = new List<long>();
+            DiaChi = diaChi;
+            SDT = sdt;
             Mail = mail;
             DanhSachMatHang = new List<MatHang>();
         }
 
+        public NhaCungCap(string maNCC, string tenCongTy, string mst, string diaChi, List<long> sdt, string mail, MatHang danhSachMatHang)
+        {
+            MaNCC = maNCC;
+            TenCongTy = tenCongTy;
+            MST = mst;
+            DiaChi = diaChi;
+            SDT = sdt;
+            Mail = mail;
+            DanhSachMatHang = new List<MatHang> { danhSachMatHang };
+        }
+
+        public NhaCungCap(string maNCC, string tenCongTy, string mst, string diaChi, long sdt, string mail, MatHang danhSachMatHang)
+        {
+            MaNCC = maNCC;
+            TenCongTy = tenCongTy;
+            MST = mst;
+            DiaChi = diaChi;
+            SDT = new List<long> { sdt }; // Sửa lỗi
+            Mail = mail;
+            DanhSachMatHang = new List<MatHang> { danhSachMatHang };
+        }
 
         public void ThemMatHang(MatHang matHang)
         {
-            DanhSachMatHang.Add(matHang);
-            matHang.ThemNhaCungCap(this);
+            if (!DanhSachMatHang.Contains(matHang))
+            {
+                DanhSachMatHang.Add(matHang);
+            }
         }
-
 
         public void XuatNhaCungCap()
         {
             Console.WriteLine($"{MaNCC} \t {TenCongTy} \t"); 
+        }
+
+        public void XuatCacMatHangMaNhaCungUngCungCap()
+        {
+            Console.WriteLine($"Nha Cung Ung {this.TenCongTy} Se Cung Ung Cac Mat Hang: ");
+            if (DanhSachMatHang.Count == 0)
+            {
+                Console.WriteLine("Nha Cung Cap Ko Co Danh Sach Mat Hang!!!");
+            }
+            else
+            {
+                foreach (var i in DanhSachMatHang)
+                {
+                    Console.WriteLine(i.TenMatHang);
+                }
+            }
         }
     }
 }

@@ -10,35 +10,31 @@ namespace QuanLySieuThi
     {
         public string MaMatHang;
         public string TenMatHang;
-        public decimal DonGiaBan;
+        public double DonGiaBan;
         public List<NhaCungCap> DanhSachNhaCungCap;
 
         
         //phuong thuc khoi tao 1 (khong can khai bao nha cung cap)
-        public MatHang(string maMatHang, string tenMatHang, decimal donGiaBan)
+        public MatHang(string maMatHang, string tenMatHang, double donGiaBan)
         {
             MaMatHang = maMatHang;
             TenMatHang = tenMatHang;
             DonGiaBan = donGiaBan;
-            DanhSachNhaCungCap = new List<NhaCungCap>();
+            //DanhSachNhaCungCap = new List<NhaCungCap>();
         }
 
 
         //phuong thuc khoi tao 2 (can khai bao nha cung cap)
-        public MatHang(string maMatHang, string tenMatHang, decimal donGiaBan, NhaCungCap cungCap)
-        {
-            MaMatHang = maMatHang;
-            TenMatHang = tenMatHang;
-            DonGiaBan = donGiaBan;
-            DanhSachNhaCungCap = new List<NhaCungCap>();
-            ThemNhaCungCap(cungCap);
-        }
+        //public MatHang(string maMatHang, string tenMatHang, double donGiaBan)
+        //{
+        //    MaMatHang = maMatHang;
+        //    TenMatHang = tenMatHang;
+        //    DonGiaBan = donGiaBan;
+        //    //DanhSachNhaCungCap = new List<NhaCungCap>();
+        //    //ThemNhaCungCap(cungCap);
+        //}
 
-        public void ThemNhaCungCap(NhaCungCap nhaCungCap)
-        {
-            if (!DanhSachNhaCungCap.Contains(nhaCungCap))
-                DanhSachNhaCungCap.Add(nhaCungCap);
-        }
+        
 
         public void XuatMatHang()
         {
@@ -47,9 +43,9 @@ namespace QuanLySieuThi
 
         public void XuatCacNhaCungUng()
         {
-            if(DanhSachNhaCungCap.Count == 0)
+            if (DanhSachNhaCungCap == null || DanhSachNhaCungCap.Count == 0)
             {
-                Console.WriteLine("danh sach nhu cung ung rong!!!");
+                Console.WriteLine("Danh sách nhà cung ứng rỗng!");
             }
             else
             {

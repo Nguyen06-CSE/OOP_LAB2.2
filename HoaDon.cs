@@ -13,7 +13,7 @@ namespace QuanLySieuThi
         public NhanVien NhanVienBanHang;
         public KhachHang KhachHangMua;
         public List<ChiTietHoaDon> DanhSachMatHang;
-        public decimal TongTien => TinhTongTien(); // Tính tổng tiền tự động
+        public double TongTien => TinhTongTien(); // Tính tổng tiền tự động
 
         public HoaDon(string soHoaDon, DateTime ngayLap, NhanVien nhanVien, KhachHang khachHang)
         {
@@ -29,9 +29,9 @@ namespace QuanLySieuThi
             DanhSachMatHang.Add(new ChiTietHoaDon(matHang, soLuong));
         }
 
-        private decimal TinhTongTien()
+        private double TinhTongTien()
         {
-            decimal tong = 0;
+            double tong = 0;
             foreach (var ct in DanhSachMatHang)
                 tong += ct.ThanhTien;
             return tong;
@@ -40,7 +40,11 @@ namespace QuanLySieuThi
 
         public void XuatHoaDon()
         {
-            Console.WriteLine($"Tong Hoa Don {TinhTongTien()} VND\n{SoHoaDon} {NgayLap} Nhan Vien: {NhanVienBanHang.HoTen} Khach Hang {KhachHangMua.HoTen}");
+            Console.WriteLine("==================================================================================================================");
+            Console.WriteLine($"{"Tong Hoa Don:",-15} {TinhTongTien(),15:N0} VND");
+            Console.WriteLine($"{"So Hoa Don:",-15} {SoHoaDon,-10} {"Ngay Lap:",-10} {NgayLap:dd/MM/yyyy}");
+            Console.WriteLine($"{"Nhan Vien:",-15} {NhanVienBanHang.HoTen,-20} {"Khach Hang:",-12} {KhachHangMua.HoTen,-20}");
+
         }
     }
 }

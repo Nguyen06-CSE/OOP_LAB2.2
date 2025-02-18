@@ -13,31 +13,64 @@ namespace QuanLySieuThi
         {
             //khoi tao mat hang voi phuong thuc 1
             MatHang mh = new MatHang("MH01", "Bánh Oreo", 25000);
-
+            //khoi tao mat hang voi phuong thuc 2
+            MatHang mh1 = new MatHang("MH02", "Bánh Que", 45000);
+            MatHang mh2 = new MatHang("MH03", "Noi Chien Khong Dau", 99000);
+            MatHang mh3 = new MatHang("MH04", "Ca Hoi Hoang", 1000000);
+            MatHang mh4 = new MatHang("MH05", "Nuoc Mam", 115000);
 
             //khoi tao nha cung cap
-            NhaCungCap ncc = new NhaCungCap("NCC001", "Cong Ty ABC", "123456789", "Ha Noi", new List<long> { 0123456789, 0987654321 }, "abc@gmail.com");
-            NhaCungCap ncc1 = new NhaCungCap("NCC002", "Cong Ty XYZ", "987654321", "Ho Chi Minh", 0356789123, "xyz@yahoo.com");
+            NhaCungCap ncc = new NhaCungCap("NCC001", "Công Ty ABC", "123456789", "Hà Nội", new List<long> { 0123456789, 0987654321 }, "abc@gmail.com", mh1);
+            NhaCungCap ncc1 = new NhaCungCap("NCC002", "Cong Ty XYZ", "987654321", "Ho Chi Minh", 0356789123, "xyz@yahoo.com", mh4);
             NhaCungCap ncc2 = new NhaCungCap("NCC003", "Cong Ty DEF", "564738291", "Da Nang", new List<long> { 0765432198, 0246574839 }, "def@outlook.com");
-            NhaCungCap ncc3 = new NhaCungCap("NCC004", "Cong Ty LMN", "432187654", "Can Tho", 0556677889, "lmn@company.com");
+
+
+
+
+            //NhaCungCap ncc1 = new NhaCungCap("NCC002", "Cong Ty XYZ", "987654321", "Ho Chi Minh", 0356789123, "xyz@yahoo.com", mh4);
+            //NhaCungCap ncc2 = new NhaCungCap("NCC003", "Cong Ty DEF", "564738291", "Da Nang", new List<long> { 0765432198, 0246574839 }, "def@outlook.com");
+            NhaCungCap ncc3 = new NhaCungCap("NCC004", "Cong Ty LMN", "432187654", "Can Tho", 0556677889, "lmn@company.com", mh1);
             NhaCungCap ncc4 = new NhaCungCap("NCC005", "Cong Ty PQR", "192837465", "Hai Phong", new List<long> { 0192837465, 0273648596 }, "pqr@business.com");
 
+        
 
-            //them mat hang cho nha cung cap
-            ncc.ThemMatHang(mh);
-
-
-            //khoi tao mat hang voi phuong thuc 2
-            MatHang mh1 = new MatHang("MH02", "Bánh Que", 45000, ncc1);
-            MatHang mh2 = new MatHang("MH03", "Noi Chien Khong Dau", 99000, ncc2);
-            MatHang mh3 = new MatHang("MH04", "Ca Hoi Hoang", 1000000, ncc);
-            MatHang mh4 = new MatHang("MH05", "Nuoc Mam", 115000, ncc);
-
-            //them nha cung cap cho cac mat hang
-            mh.ThemNhaCungCap(ncc4);
+            //ncc.XuatCacMatHangMaNhaCungUngCungCap();
+            //ncc1.XuatCacMatHangMaNhaCungUngCungCap();
+            //ncc2.XuatCacMatHangMaNhaCungUngCungCap();
+            //ncc3.XuatCacMatHangMaNhaCungUngCungCap();
+            //ncc4.XuatCacMatHangMaNhaCungUngCungCap();
 
             //xuat danh sach cac nha cung cap cua mat hang nay
-            //mh.XuatCacNhaCungUng();
+            mh.XuatCacNhaCungUng();
+
+
+
+            // Tạo danh sách mặt hàng giả định
+            MatHang mh5 = new MatHang("MH001", "Dien Thoai", 10000000);
+            MatHang mh6 = new MatHang("MH002", "Laptop", 20000000);
+            MatHang mh7 = new MatHang("MH003", "TV", 15000000);
+            MatHang mh8 = new MatHang("MH004", "May Lanh", 12000000);
+            MatHang mh9 = new MatHang("MH005", "Tu Lanh", 18000000);
+            MatHang mh10 = new MatHang("MH006", "Lo Vi Song", 3000000);
+            MatHang mh11 = new MatHang("MH007", "May Giat", 7000000);
+            MatHang mh12 = new MatHang("MH008", "Quat Dien", 800000);
+            MatHang mh13 = new MatHang("MH009", "Den LED", 500000);
+            MatHang mh14 = new MatHang("MH010", "Noi Com Dien", 1200000);
+
+            // Khởi tạo các loại hàng hóa
+            LoaiHang loai1 = new LoaiHang("LH001", "Dien Thoai & Laptop", new List<MatHang> { mh5, mh6 });
+            LoaiHang loai2 = new LoaiHang("LH002", "Tivi & May Lanh", new List<MatHang> { mh7, mh8 });
+            LoaiHang loai3 = new LoaiHang("LH003", "Tu Lanh & Lo Vi Song", new List<MatHang> { mh9, mh10 });
+            LoaiHang loai4 = new LoaiHang("LH004", "May Giat & Quat", new List<MatHang> { mh11, mh12 });
+            LoaiHang loai5 = new LoaiHang("LH005", "Den & Noi Com", new List<MatHang> { mh13, mh14 });
+
+
+            //loai1.XuatCacMatHangTrongLoaiHang();
+            //loai2.XuatCacMatHangTrongLoaiHang();
+            //loai3.XuatCacMatHangTrongLoaiHang();
+            //loai4.XuatCacMatHangTrongLoaiHang();
+            //loai5.XuatCacMatHangTrongLoaiHang();
+
 
 
             //khoi tao khu vuc

@@ -10,7 +10,7 @@ namespace QuanLySieuThi
     {
         public MatHang MatHang;
         public int SoLuong;
-        public decimal ThanhTien => SoLuong * MatHang.DonGiaBan; // Tính thành tiền tự động
+        public double ThanhTien => SoLuong * MatHang.DonGiaBan; // Tính thành tiền tự động
 
         public ChiTietHoaDon(MatHang matHang, int soLuong)
         {
@@ -20,7 +20,8 @@ namespace QuanLySieuThi
 
         public void XuatChiTietHoaDon()
         {
-            Console.WriteLine($"{MatHang.TenMatHang}\tco gia\t{MatHang.DonGiaBan}\tvoi so luong {SoLuong}\tthanh tien\t{ThanhTien}");
+            Console.WriteLine($"{MatHang.TenMatHang,-20} | Gia: {MatHang.DonGiaBan,10:N0} VND | SL: {SoLuong,3} | Thanh Tien: {ThanhTien,15:N0} VND");
+
         }
     }
 }
